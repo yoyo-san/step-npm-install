@@ -25,10 +25,10 @@ The MIT License (MIT)
 
 # Changelog
 
-## 0.9.4
+## 0.9.3
 
 - Fix wrong directory cache created
 
-## 0.9.3
+## 0.9.2
 
 - Initial release
