@@ -13,3 +13,22 @@ Executes the `npm install` command with leveraging the wercker cache mechanism t
 ## Example
 
     - npm-install
+    
+# What's new
+
+- Fix wrong directory cache created
+
+
+# License
+
+The MIT License (MIT)
+
+# Changelog
+
+## 0.9.4
+
+- Fix wrong directory cache created
+
+## 0.9.3
+
+- Initial release
