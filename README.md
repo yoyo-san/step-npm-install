@@ -10,7 +10,7 @@ If `npm install` fails, it will be retried three times before failing.
 - type: string
 - optional: true
 - description: Passed through to npm install
-- example: `options: -g bower`
+- example: `options: browserify`
 
 ## Example
 
