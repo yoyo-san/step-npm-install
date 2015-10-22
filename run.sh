@@ -1,7 +1,10 @@
 #!/bin/bash
 
 main() {
-  setup_cache
+  if [ "$WERCKER_NPM_INSTALL_USE_CACHE" == "true" ]; then
+    setup_cache
+  fi
+
   set +e
   npm_install
   set -e
@@ -19,6 +22,10 @@ npm_install() {
   for try in $(seq "$retries"); do
     info "Starting npm install, try: $try"
     npm install $WERCKER_NPM_INSTALL_OPTIONS && return;
+
+    if [ "$WERCKER_NPM_INSTALL_CLEAR_CACHE_ON_FAILED" == "true" ]; then
+      npm cache clear
+    fi
   done
 
   fail "Failed to successfully execute npm install, retries: $retries"

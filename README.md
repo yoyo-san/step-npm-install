@@ -1,16 +1,17 @@
 # npm-install step
 
-Executes the `npm install` command with leveraging the wercker cache mechanism to improve installation time.
+Executes the `npm install` command with leveraging the wercker cache mechanism
+to improve installation time (optional).
 
-If `npm install` fails, it will be retried three times before failing.
+If `npm install` fails, it will be retried three times before failing, and
+optionally the cache will be cleared in between.
 
 ## Options
 
-### options
-- type: string
-- optional: true
-- description: Passed through to npm install
-- example: `options: browserify`
+- `clear-cache-on-failed` (optional, default: `true`) If npm fails, clear the
+  cache before trying again.
+- `use-cache` (optional, default: `true`) Use the npm cache.
+- `options` (optional) Allow for passing arbitrary arguments to npm.
 
 ## Example
 
@@ -25,6 +26,10 @@ build:
 The MIT License (MIT)
 
 # Changelog
+
+## 1.1.0
+
+- Add `clear-cache-on-failed`, `use-cache` options.
 
 ## 1.0.0
 
