@@ -27,6 +27,10 @@ The MIT License (MIT)
 
 # Changelog
 
+## 1.1.2
+
+- Ensure cache get's stored
+
 ## 1.1.1
 
 - Add debug messages
