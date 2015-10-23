@@ -26,6 +26,8 @@ clear_cache() {
   npm cache clear
   
   # make sure the cache contains something, so it will override cache that get's stored
+  debug 'Creating $WERCKER_CACHE_DIR/wercker/npm'
+  mkdir -p "$WERCKER_CACHE_DIR/wercker/npm"
   printf keep > "$WERCKER_CACHE_DIR/wercker/npm/.keep"
 }
 
