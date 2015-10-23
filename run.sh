@@ -36,7 +36,7 @@ npm_install() {
     npm install $WERCKER_NPM_INSTALL_OPTIONS && return;
 
     if [ "$WERCKER_NPM_INSTALL_CLEAR_CACHE_ON_FAILED" == "true" ]; then
-      
+      clear_cache
     fi
   done
 
