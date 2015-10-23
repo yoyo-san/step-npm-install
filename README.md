@@ -27,6 +27,10 @@ The MIT License (MIT)
 
 # Changelog
 
+## 1.1.1
+
+- Add debug messages
+
 ## 1.1.0
 
 - Add `clear-cache-on-failed`, `use-cache` options.
