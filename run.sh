@@ -21,6 +21,14 @@ setup_cache() {
   npm config set cache "$WERCKER_CACHE_DIR/wercker/npm"
 }
 
+clear_cache() {
+  warn "Clearing npm cache"
+  npm cache clear
+  
+  # make sure the cache contains something, so it will override cache that get's stored
+  printf keep > "$WERCKER_CACHE_DIR/wercker/npm/.keep"
+}
+
 npm_install() {
   local retries=3;
   for try in $(seq "$retries"); do
@@ -28,8 +36,7 @@ npm_install() {
     npm install $WERCKER_NPM_INSTALL_OPTIONS && return;
 
     if [ "$WERCKER_NPM_INSTALL_CLEAR_CACHE_ON_FAILED" == "true" ]; then
-      warn "Clearing npm cache"
-      npm cache clear
+      
     fi
   done
 
