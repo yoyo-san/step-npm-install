@@ -2,6 +2,7 @@
 
 main() {
   if [ "$WERCKER_NPM_INSTALL_USE_CACHE" == "true" ]; then
+    info "Using wercker cache"
     setup_cache
   fi
 
@@ -13,7 +14,10 @@ main() {
 }
 
 setup_cache() {
+  debug 'Creating $WERCKER_CACHE_DIR/wercker/npm'
   mkdir -p "$WERCKER_CACHE_DIR/wercker/npm"
+  
+  debug 'Configuring npm to use wercker cache'
   npm config set cache "$WERCKER_CACHE_DIR/wercker/npm"
 }
 
@@ -24,6 +28,7 @@ npm_install() {
     npm install $WERCKER_NPM_INSTALL_OPTIONS && return;
 
     if [ "$WERCKER_NPM_INSTALL_CLEAR_CACHE_ON_FAILED" == "true" ]; then
+      warn "Clearing npm cache"
       npm cache clear
     fi
   done
