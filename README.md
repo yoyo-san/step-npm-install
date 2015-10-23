@@ -27,7 +27,7 @@ The MIT License (MIT)
 
 # Changelog
 
-## 1.1.2
+## 1.1.3
 
 - Ensure cache get's stored
 
