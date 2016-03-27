@@ -7,6 +7,7 @@ main() {
   fi
 
   set +e
+  cd frontend
   npm_install
   set -e
 
